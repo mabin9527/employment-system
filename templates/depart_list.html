@@ -84,15 +84,17 @@
               </tr>
             </thead>
             <tbody>
+            {% for obj in queryset %}
               <tr>
-                <th>1</th>
-                <td>Sales</td>
+                <th>{{ obj.id}}</th>
+                <td>{{ obj.title}}</td>
                 <td>
                   <a class="btn btn-primary btn-xs" href="#">Edit</a>
                   <a class="btn btn-danger btn-xs" href="">Delete</a>
                 </td>
               </tr>
               <tr>
+            {% endfor %}
             </tbody>
           </table>
         </div>
