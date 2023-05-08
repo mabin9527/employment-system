@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def depart_list(request):
+    """
+    Department list
+    """
+    return render(request, 'depart_list.html')
