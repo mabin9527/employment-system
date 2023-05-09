@@ -104,9 +104,16 @@ def employee_edit(request, nid):
     Allow user to update employee's details. Click edit button and user will be redirected 
     to edit page.
     """
+    row_object = models.UserInfo.objects.filter(id=nid).first()
     if request.method == 'GET':
-        row_object = models.UserInfo.objects.filter(id=nid).first()
         form = EmployeeForm(instance = row_object)
         return render(request, 'employee_edit.html', {'form': form})
+    
+    form = EmployeeForm(data=request.POST, instance=row_object)
+    if form.is_valid():
+        form.save()
+        return redirect('/employee/list/')
+    
+    return render(request, 'employee_edit.html', {'form': form})
     
     
