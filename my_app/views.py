@@ -64,7 +64,8 @@ def employee_list(request):
     """
     Display all the employee's detail from database
     """
-    return render(request, 'employee_list.html')
+    queryset = models.UserInfo.objects.all()
+    return render(request, 'employee_list.html', {'queryset': queryset})
 
     
     
