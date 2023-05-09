@@ -99,5 +99,11 @@ def employee_add(request):
         return redirect('/employee/list')
     return render(request, 'employee_add.html', {'form': form})
 
+def employee_edit(request):
+    """
+    Allow user to update employee's details. Click edit button and user will be redirected 
+    to edit page.
+    """
+    return render(request, 'employee_edit.html')
     
     
