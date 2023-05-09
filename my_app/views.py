@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from my_app import models
+from .forms import DepartmentForm
 
 
 def depart_list(request):
@@ -13,6 +14,25 @@ def depart_list(request):
 
 def depart_add(request):
     """
-    Allow users to add the department 
+    First to check if the request.method is GET method. If it is true, then link the user to 
+    depart_add page. If the request.method is POST method, save the data collected from user
+    to database and redirect user to depart_list page 
     """
-    return render(request, 'depart_add.html')
+    if request.method == 'POST':
+        form = DepartmentForm(request.POST)
+        if form.is_valid():
+            return redirect('/depart/list')
+
+    form = DepartmentForm()       
+    context = {
+        'form': form
+    }
+    return render(request, 'depart_add.html', context)
+
+def depart_delete(request):
+    pass
+
+
+
+    
+    
