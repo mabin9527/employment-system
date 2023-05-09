@@ -60,5 +60,11 @@ def depart_edit(request, nid):
     models.Department.objects.filter(id=nid).update(title=title)
     return redirect('/depart/list')
 
+def employee_list(request):
+    """
+    Display all the employee's detail from database
+    """
+    return render(request, 'employee_list.html')
+
     
     
