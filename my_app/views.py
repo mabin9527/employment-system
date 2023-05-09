@@ -76,6 +76,8 @@ class EmployeeForm(forms.ModelForm):
             'name', 'password', 'age', 'account', 'create_time', 'gender', 'depart',
             ]
 
+
+
 def employee_add(request):
     """
     Use if statement to check whether request.method is GET. If it is true, user will 

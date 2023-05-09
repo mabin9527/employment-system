@@ -9,11 +9,14 @@
       <div class="panel-body">
           <form method="post">
               {% csrf_token %}
-              {{ form }}
+
+              {% for field in form %}
               <div class="form-group">
                 <label>{{field.label}}</label>
                 {{field}}
               </div>
+              {% endfor %}
+              
               <button type="submit" class="btn btn-primary">Submit</button>
           </form>
       </div>
