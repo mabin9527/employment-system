@@ -67,10 +67,31 @@ def employee_list(request):
     queryset = models.UserInfo.objects.all()
     return render(request, 'employee_list.html', {'queryset': queryset})
 
+
+class EmployeeForm(forms.ModelForm):
+
+    class Meta:
+        model = models.UserInfo
+        fields = [
+            'name', 'password', 'age', 'account', 'create_time', 'gender', 'depart',
+            ]
+
 def employee_add(request):
     """
+    Use if statement to check whether request.method is GET. If it is true, user will 
+    jump to employee_add page. As user submit their data to database, it will be validated
+    firstly. Employee's datail will be saved to database if passing validation and users are
+    redirected to employee_list page. Otherwise errors will be raised.
     """
-    return render(request, 'employee_add.html')
+    if request.method == 'GET':
+        form = EmployeeForm()
+        return render(request, 'employee_add.html', {'form': form})
+    
+    form = EmployeeForm(data = request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('/employee/list')
+    return render(request, 'employee_add.html', {'form': form})
 
     
     
