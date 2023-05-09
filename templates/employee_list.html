@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div style="margin-bottom: 10px;">
+      <a class="btn btn-success" href="/depart/add/" target="_blank">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        Add New Employee
+      </a>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+        Employee List
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>Jack</td>
+            <td>
+              <a class="btn btn-primary btn-xs" href="#">Edit</a>
+              <a class="btn btn-danger btn-xs" href="#">Delete</a>
+            </td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+{% endblock %}
