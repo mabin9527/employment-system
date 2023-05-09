@@ -39,8 +39,12 @@ def depart_add(request):
     return redirect('/depart/list/')
 
 def depart_delete(request):
-    pass
-
+    """
+    Added department title can be deleted by acquiring nid and redirect to depart_list page
+    """
+    nid = request.GET.get('nid')
+    models.Department.objects.filter(id=nid).delete()
+    return redirect('/depart/list')
 
 
     
