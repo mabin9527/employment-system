@@ -76,7 +76,11 @@ class EmployeeForm(forms.ModelForm):
             'name', 'password', 'age', 'account', 'create_time', 'gender', 'depart',
             ]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
+        for name, field in self.fields.items():
+            field.widget.attrs = {'class': 'form-control'}
 
 def employee_add(request):
     """
