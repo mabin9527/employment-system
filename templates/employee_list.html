@@ -36,11 +36,11 @@
             <td>{{ obj.password }}</td>
             <td>{{ obj.age }}</td>
             <td>{{ obj.account }}</td>
-            <td>{{ obj.create_time|date:"Y-m-d" }}</td>
+            <td>{{ obj.create_time|date:'Y-m-d' }}</td>
             <td>{{ obj.get_gender_display }}</td>
             <td>{{ obj.depart.title }}</td>
             <td>
-              <a class="btn btn-primary btn-xs" href="#">Edit</a>
+              <a class="btn btn-primary btn-xs" href="/employee/{{ obj.id }}/edit/" target="_blank">Edit</a>
               <a class="btn btn-danger btn-xs" href="#">Delete</a>
             </td>
           </tr>
