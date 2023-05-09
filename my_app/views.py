@@ -67,5 +67,10 @@ def employee_list(request):
     queryset = models.UserInfo.objects.all()
     return render(request, 'employee_list.html', {'queryset': queryset})
 
+def employee_add(request):
+    """
+    """
+    return render(request, 'employee_add.html')
+
     
     
