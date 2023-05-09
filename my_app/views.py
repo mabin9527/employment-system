@@ -46,6 +46,16 @@ def depart_delete(request):
     models.Department.objects.filter(id=nid).delete()
     return redirect('/depart/list')
 
+def depart_edit(request, nid):
+    """
+    User can update their department name using edit button. When user click edit button, 
+    they will be linked to depart_edit page and the title is original name. Then user can 
+    change it to a new title.
+    """
+    if request.method == 'GET':
+        row_object = models.Department.objects.filter(id=nid).first()
+        return render(request, 'depart_edit.html', {'row_object': row_object})
+
 
     
     
