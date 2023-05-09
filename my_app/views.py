@@ -56,6 +56,9 @@ def depart_edit(request, nid):
         row_object = models.Department.objects.filter(id=nid).first()
         return render(request, 'depart_edit.html', {'row_object': row_object})
 
+    title = request.POST.get('title')
+    models.Department.objects.filter(id=nid).update(title=title)
+    return redirect('/depart/list')
 
     
     
