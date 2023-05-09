@@ -115,5 +115,13 @@ def employee_edit(request, nid):
         return redirect('/employee/list/')
     
     return render(request, 'employee_edit.html', {'form': form})
+
+def employee_delete(request, nid):
+    """
+    Delete the employee's information
+    """
+    
+    models.UserInfo.objects.filter(id=nid).delete()
+    return redirect('/employee/list')
     
     
