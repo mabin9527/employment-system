@@ -25,3 +25,24 @@ a {
 .copyright {
     font-size: 12px;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    height: 36.84px;
+    width: 80px;
+}
+
+.search-btn {
+    height: 36.84px;
+}
+
+.search-form {
+    display: flex;
+    margin-left: 5px;
+}
+

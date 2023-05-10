@@ -70,9 +70,9 @@ class Pagination(object):
         page_str_list = []
         
         if self.page > 1:
-            prev = f'<li><a href="?page={self.page - 1}"> Previous </a></li>'
+            prev = f'<li><a href="?page={self.page - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>'
         else:
-            prev = f'<li><a href="?page={1}"> Previous </a></li>'
+            prev = f'<li><a href="?page={1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>'
         
         page_str_list.append(prev)
 
@@ -85,21 +85,17 @@ class Pagination(object):
         page_str_list.append(ele)
 
         if self.page < self.total_page_count:
-            prev = f'<li><a href="?page={self.page + 1}"> Next </a></li>'
+            prev = f'<li><a href="?page={self.page + 1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
         else:
-            prev = f'<li><a href="?page={self.total_page_count}"> Next </a></li>'
+            prev = f'<li><a href="?page={self.total_page_count}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
         
         page_str_list.append(prev)
 
         search_string = """
-            <li>
-                <form style="float: left;" method="get">
-                    <input type="text" name="page" 
-                        style="position: relative; display: inline-block; width: 80px;"
-                        class="form-control" placeholder="Page" >
-                    <button class="btn btn-default" type="submit">Go!</button>
-                </form>
-            </li>
+            <form class="search-form" method="get">
+                <input type="text" name="page" class="form-control search-input" placeholder="Page" >
+                <button class="btn btn-default search-btn" type="submit">Go!</button>
+            </form>
         """
 
         page_str_list.append(search_string)

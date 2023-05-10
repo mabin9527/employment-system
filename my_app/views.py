@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from my_app import models
 from django import forms
 from django.core.validators import RegexValidator
+from utils.pagination import Pagination
 
 
 def depart_list(request):
@@ -14,7 +15,13 @@ def depart_list(request):
         data_dict['title__contains'] = search_data
 
     queryset = models.Department.objects.filter(**data_dict)
-    return render(request, 'depart_list.html', {'queryset': queryset, 'search_data': search_data})
+    page_object = Pagination(request, queryset, page_size=3)
+    context = {
+        'queryset': page_object.page_queryset,
+        'page_string': page_object.html(),
+        'search_data': search_data
+    }
+    return render(request, 'depart_list.html', context)
 
 class DepartmentForm(forms.ModelForm):
     """
