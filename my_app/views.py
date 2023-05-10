@@ -81,7 +81,13 @@ def employee_list(request):
         data_dict['depart__title__contains'] = search_data
 
     queryset = models.UserInfo.objects.filter(**data_dict)
-    return render(request, 'employee_list.html', {'queryset': queryset, 'search_data': search_data})
+    page_object = Pagination(request, queryset, page_size=2)
+    context = {
+        'queryset': page_object.page_queryset,
+        'page_string': page_object.html(),
+        'search_data': search_data
+    }
+    return render(request, 'employee_list.html', context)
 
 
 class EmployeeForm(forms.ModelForm):
