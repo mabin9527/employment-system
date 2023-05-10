@@ -43,4 +43,7 @@ class Pagination(object):
         if self.total_page_count <= 2 * self.plus + 1:
             start_page = 1
             end_page = self.total_page_count
-            
+        else:
+            if self.page <= self.plus:
+                start_page = 1
+                end_page = 2 * self.plus + 1
