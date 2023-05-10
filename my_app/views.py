@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from my_app import models
 from django import forms
+from django.core.validators import RegexValidator
 
 
 def depart_list(request):
@@ -69,6 +70,19 @@ def employee_list(request):
 
 
 class EmployeeForm(forms.ModelForm):
+
+    name = forms.CharField(
+        label='name',
+        validators=[RegexValidator(r'^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$', 
+        'Please type correct name')]
+    )
+    password = forms.CharField(
+        label='password',
+        validators=[RegexValidator(r'^\S*(?=\S{6,})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*? ])\S*$',
+        'The password should contain at least 6 characters, one uppercase letter, one lowercase letter, one number and one special symbol'
+        )]
+    )
+
 
     class Meta:
         model = models.UserInfo
