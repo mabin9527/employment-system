@@ -43,7 +43,23 @@ class Pagination(object):
         if self.total_page_count <= 2 * self.plus + 1:
             start_page = 1
             end_page = self.total_page_count
+
+        # When the total amount of pages is greater than 11, but the current page is 
+        # less than 5, the start page is 1.
+
         else:
             if self.page <= self.plus:
                 start_page = 1
                 end_page = 2 * self.plus + 1
+
+        # When the total amount of pages is greater than 11 and  the current page + 5 is 
+        # greater than total pages , the end page is number of total pages.
+
+            else:
+                if (self.page + self.plus) > self.total_page_count:
+                    start_page = self.total_page_count - 2 * self.plus
+                    end_page = self.total_page_count
+                
+                else:
+                    start_page = self.page - self.plus
+                    end_page = self.page + self.plus
