@@ -8,10 +8,13 @@ def depart_list(request):
     """
     Department list
     """
+    data_dict = {}
+    search_data = request.GET.get('search', '')
+    if search_data:
+        data_dict['title__contains'] = search_data
 
-    # Get all the deparment list from database
-    queryset = models.Department.objects.all()
-    return render(request, 'depart_list.html', {'queryset': queryset})
+    queryset = models.Department.objects.filter(**data_dict)
+    return render(request, 'depart_list.html', {'queryset': queryset, 'search_data': search_data})
 
 class DepartmentForm(forms.ModelForm):
     """
