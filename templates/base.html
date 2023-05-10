@@ -18,6 +18,8 @@
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <!-- Personal CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}"/>
+
+    {% block css %}{% endblock %}
     <title>Employment System</title>
 </head>
 <body>
@@ -80,5 +82,7 @@
     
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" 
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    {% block js %}{% endblock %}
 </body>
 </html>
