@@ -53,7 +53,7 @@ class Pagination(object):
                 end_page = 2 * self.plus + 1
 
         # When the total amount of pages is greater than 11 and  the current page + 5 is 
-        # greater than total pages , the end page is number of total pages.
+        # greater than total amount of pages , the end page is number of total pages.
 
             else:
                 if (self.page + self.plus) > self.total_page_count:
@@ -63,3 +63,12 @@ class Pagination(object):
                 else:
                     start_page = self.page - self.plus
                     end_page = self.page + self.plus
+    
+        page_str_list = []
+        
+        if self.page > 1:
+            prev = f'<li><a href="?page={self.page - 1}"> Previous </a></li>'
+        else:
+            prev = f'<li><a href="?page={1}"> Previous </a></li>'
+        
+        page_str_list.append(prev)
