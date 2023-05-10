@@ -11,4 +11,9 @@ class Pagination(object):
         :param plus: The number of pages is moved back or moved forward from current page
         """
 
-        
+        page = request.GET.get(page_param, '1')
+        if page.isdecimal():
+            page = int(page)
+        else:
+            page = 1
+        self.page = page
