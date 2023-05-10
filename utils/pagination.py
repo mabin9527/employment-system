@@ -36,4 +36,11 @@ class Pagination(object):
         self.total_page_count = total_page_count
         self.plus = plus
 
+    def html(self):
 
+        # Get the first 5 pages and the last 5 pages of current page
+
+        if self.total_page_count <= 2 * self.plus + 1:
+            start_page = 1
+            end_page = self.total_page_count
+            
