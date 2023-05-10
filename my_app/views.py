@@ -71,11 +71,9 @@ def employee_list(request):
     data_dict = {}
     search_data = request.GET.get('search', '')
     if search_data:
-        data_dict[
-            'name__contains', 'department__contains', 'create_time__contains', 'gender__contains'
-            ] = search_data
+        data_dict['depart__title__contains'] = search_data
 
-    queryset = models.Department.objects.filter(**data_dict)
+    queryset = models.UserInfo.objects.filter(**data_dict)
     return render(request, 'employee_list.html', {'queryset': queryset, 'search_data': search_data})
 
 
@@ -99,12 +97,6 @@ class EmployeeForm(forms.ModelForm):
             r'^(?:[1-9][0-9]?|1[01][0-9]|120)$', 'Please type correct age'
         )]
     )
-    # account = forms.CharField(
-    #     label='Balance',
-    #     validators=[RegexValidator(
-    #         r'^-?\d{1,9}(,\d{3})*(\.\d{1,2})?$', 'Please type correct balance'
-    #     )]
-    # )
 
     class Meta:
         model = models.UserInfo
