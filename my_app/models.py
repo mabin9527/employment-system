@@ -20,7 +20,7 @@ class UserInfo(models.Model):
     age = models.IntegerField(verbose_name = 'age')
     account = models.DecimalField(verbose_name='balance', max_digits=10, decimal_places=2, default=0)
     create_time = models.DateField(verbose_name='Hire Date')
-    depart = models.ForeignKey(verbose_name ='Department', to='Department', to_field='id', on_delete=models.CASCADE)
+    depart = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     gender_choices = (
         (1, 'Male'),

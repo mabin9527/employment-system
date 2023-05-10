@@ -68,8 +68,15 @@ def employee_list(request):
     """
     Display all the employee's detail from database
     """
-    queryset = models.UserInfo.objects.all()
-    return render(request, 'employee_list.html', {'queryset': queryset})
+    data_dict = {}
+    search_data = request.GET.get('search', '')
+    if search_data:
+        data_dict[
+            'name__contains', 'department__contains', 'create_time__contains', 'gender__contains'
+            ] = search_data
+
+    queryset = models.Department.objects.filter(**data_dict)
+    return render(request, 'employee_list.html', {'queryset': queryset, 'search_data': search_data})
 
 
 class EmployeeForm(forms.ModelForm):
@@ -92,12 +99,12 @@ class EmployeeForm(forms.ModelForm):
             r'^(?:[1-9][0-9]?|1[01][0-9]|120)$', 'Please type correct age'
         )]
     )
-    account = forms.CharField(
-        label='Balance',
-        validators=[RegexValidator(
-            r'^-?\d{1,9}(,\d{3})*(\.\d{1,2})?$', 'Please type correct balance'
-        )]
-    )
+    # account = forms.CharField(
+    #     label='Balance',
+    #     validators=[RegexValidator(
+    #         r'^-?\d{1,9}(,\d{3})*(\.\d{1,2})?$', 'Please type correct balance'
+    #     )]
+    # )
 
     class Meta:
         model = models.UserInfo
@@ -149,7 +156,6 @@ def employee_delete(request, nid):
     """
     Delete the employee's information
     """
-    
     models.UserInfo.objects.filter(id=nid).delete()
     return redirect('/employee/list')
     

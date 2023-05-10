@@ -2,11 +2,23 @@
 
 {% block content %}
 <div class="container">
-    <div style="margin-bottom: 10px;">
-      <a class="btn btn-success" href="/employee/add/" target="_blank">
+    <div style="margin-bottom: 10px;" class="clearfix">
+      <a class="btn btn-success" href="/employee/add/">
         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
         Add New Employee
       </a>
+      <div style="float: right; width: 200px">
+        <form method="get">
+          <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Search for..." value="{{ search_data}}">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+        </form>
+      </div>
     </div>
   
     <div class="panel panel-default">
@@ -41,7 +53,7 @@
             <td>{{ obj.depart.title }}</td>
             <td>
               <a class="btn btn-primary btn-xs" href="/employee/{{ obj.id }}/edit/" target="_blank">Edit</a>
-              <a class="btn btn-danger btn-xs" href="/employee/{{ obj.id }}/delete/">Delete</a>
+              <a class="btn btn-danger btn-xs" href="/employee/delete/?nid={{obj.id}}">Delete</a>
             </td>
           </tr>
           <tr>
