@@ -17,6 +17,23 @@ class Pagination(object):
         else:
             page = 1
         self.page = page
+
+        # Calcualte the first and the last data on current page
+
         self.page_size = page_size
         self.start = (page - 1) * page_size
         self.end = page * page_size
+
+        # Obtain the total page by using total number of data divided by the amount of data
+        # displayed per page.  If there is a remainder, then total page +1 for showing all 
+        # data to user. 
+
+        self.page_queryset = queryset[self.start:self.end]
+        total_count = queryset.count()
+        total_page_count, remainder = divmod(total_count, page_size)
+        if remainder:
+            total_page_count += 1
+        self.total_page_count = total_page_count
+        self.plus = plus
+
+
