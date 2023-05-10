@@ -1,3 +1,6 @@
+from django.utils.safestring import mark_safe
+
+
 class Pagination(object):
     """
     Build reusable pagination class
@@ -87,4 +90,18 @@ class Pagination(object):
             prev = f'<li><a href="?page={self.total_page_count}"> Next </a></li>'
         
         page_str_list.append(prev)
-        
+
+        search_string = """
+            <li>
+                <form style="float: left;" method="get">
+                    <input type="text" name="page" 
+                        style="position: relative; display: inline-block; width: 80px;"
+                        class="form-control" placeholder="Page" >
+                    <button class="btn btn-default" type="submit">Go!</button>
+                </form>
+            </li>
+        """
+
+        page_str_list.append(search_string)
+        page_string = mark_safe("".join(page_str_list))
+        return page_string
