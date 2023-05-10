@@ -80,3 +80,11 @@ class Pagination(object):
                 ele = f'<li><a href="?page={i}"> {i} </a></li>'
         
         page_str_list.append(ele)
+
+        if self.page < self.total_page_count:
+            prev = f'<li><a href="?page={self.page + 1}"> Next </a></li>'
+        else:
+            prev = f'<li><a href="?page={self.total_page_count}"> Next </a></li>'
+        
+        page_str_list.append(prev)
+        
