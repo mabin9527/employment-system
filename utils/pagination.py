@@ -17,3 +17,6 @@ class Pagination(object):
         else:
             page = 1
         self.page = page
+        self.page_size = page_size
+        self.start = (page - 1) * page_size
+        self.end = page * page_size
