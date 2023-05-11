@@ -1,6 +1,14 @@
 from django.db import models
 
 
+class Admin(models.Model):
+    """
+    Table for companies' administrator
+    """
+    username = models.CharField(verbose_name="Username", max_length=32)
+    password = models.CharField(verbose_name='Password', max_length=64)
+
+
 class Department(models.Model):
     """
     Diagram for department information
