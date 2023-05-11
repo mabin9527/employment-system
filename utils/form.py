@@ -77,3 +77,16 @@ class AdminForm(BootStrapModelForm):
             raise ValidationError('Your password does not match !')
         return confirm
 
+
+class LoginForm(forms.Form):
+
+    username = forms.CharField(
+        label='Username',
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+
+    password = forms..CharField(
+        label='Password',
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
+    )
+
