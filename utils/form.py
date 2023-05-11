@@ -2,21 +2,19 @@ from my_app import models
 from django import forms
 from django.core.validators import RegexValidator
 from utils.pagination import Pagination
+from utils.bootstrap import BootStrapModelForm
 
 
-class DepartmentForm(forms.ModelForm):
+class DepartmentForm(BootStrapModelForm):
     """
     Create form class to allow user to add department data
     """
     class Meta:
         model = models.Department
         fields = ['title',]
-        widgets = {
-            'title': forms.TextInput(attrs= {'class': 'form-control'}),
-        }
 
 
-class EmployeeForm(forms.ModelForm):
+class EmployeeForm(BootStrapModelForm):
 
     name = forms.CharField(
         label='Name',
@@ -43,19 +41,10 @@ class EmployeeForm(forms.ModelForm):
             'name', 'password', 'age', 'account', 'create_time', 'gender', 'depart',
             ]
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-        for name, field in self.fields.items():
-            field.widget.attrs = {
-                'class': 'form-control',
-                'placeholder': field.label
-                }
 
 
-class AdminForm(ModelForm):
+class AdminForm(BootStrapModelForm):
     
     class Meta:
         model = models.Admin
         fields = ['username', 'password',]
-        

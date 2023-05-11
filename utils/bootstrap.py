@@ -1,7 +1,7 @@
 from django import forms
 
 
-class BootStrapModelFrom(forms.ModelForm):
+class BootStrapModelForm(forms.ModelForm):
     """
     BootStrapModelForm class provides django forms css style and js.
     """
@@ -16,6 +16,6 @@ class BootStrapModelFrom(forms.ModelForm):
 
             else:
                 field.widget.attrs = {
-                    'class': 'form-control'
+                    'class': 'form-control',
                     'placeholder': field.label
                 }
