@@ -1,5 +1,6 @@
 from my_app import models
 from django import forms
+from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from utils.bootstrap import BootStrapModelForm
 
@@ -43,7 +44,35 @@ class EmployeeForm(BootStrapModelForm):
 
 
 class AdminForm(BootStrapModelForm):
-    
+    """
+    AdminForm contains username, password and confirmed password. Use screct key 
+    to protect users' password and confirmed password. Also password must same as 
+    confirmed password if users want to submit their data successfully.
+    """
+
+    confirm_password = forms.CharField(
+        label = 'Confirm your password',
+        widget = forms.PasswordInput(render_value=True)
+    )
+
     class Meta:
+
         model = models.Admin
-        fields = ['username', 'password',]
+        fields = ['username', 'password', 'confirm_password']
+        widgets = {
+            'password': forms.PasswordInput(render_value=True)
+        }
+
+    def clean_password(self):
+
+        pwd = self.cleaned_data.get('password')
+        return pwd
+
+    def clean_confirm_password(self):
+
+        pwd = self.cleaned_data.get('password')
+        confirm = self.cleaned_data.get('comfirm_password')
+        if confirm != pwd:
+            raise ValidationError('Your password does not match !')
+        return comfirm
+
