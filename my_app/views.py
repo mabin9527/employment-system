@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 
 from utils.pagination import Pagination
-from utils.form import DepartmentForm, EmployeeForm
+from utils.form import DepartmentForm, EmployeeForm, AdminForm
 
 
 # department
