@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The employment system provides a platform to manage employees">
+    <meta name="keywords"
+    content="employment system, employees' information, platform">
+    <meta name="author" content="Bin Ma">
+    <!-- favicon -->
+    <link rel="icon" type="image/xicon" href="{% static 'favicon/department.ico' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Personal CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}"/>
+
+    {% block css %}{% endblock %}
+    <title>Login</title>
+
+</head>
+<body>
+    <div class="account">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label>Username: </label>
+                <input type="text" class="form-control" placeholder="username">
+            </div>
+            <div class="form-gropu">
+                <label>Password: </label>
+                <input type="password" class="form-control" placeholder="password">
+            </div>
+            <div class="btn">
+                <button class="btn btn-primary">Sign in</button>
+            </div>
+        </form>
+    </div>
+
+    
+</body>
+</html>

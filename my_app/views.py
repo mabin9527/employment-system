@@ -19,7 +19,7 @@ def depart_list(request):
         data_dict['title__contains'] = search_data
 
     queryset = models.Department.objects.filter(**data_dict)
-    page_object = Pagination(request, queryset, page_size=3)
+    page_object = Pagination(request, queryset)
     context = {
         'queryset': page_object.page_queryset,
         'page_string': page_object.html(),
@@ -82,7 +82,7 @@ def employee_list(request):
         data_dict['depart__title__contains'] = search_data
 
     queryset = models.UserInfo.objects.filter(**data_dict)
-    page_object = Pagination(request, queryset, page_size=2)
+    page_object = Pagination(request, queryset)
     context = {
         'queryset': page_object.page_queryset,
         'page_string': page_object.html(),
@@ -146,10 +146,10 @@ def admin_list(request):
     
     queryset = models.Admin.objects.filter(**data_dict)
 
-    # page_object = Pagination(request, queryset)
+    page_object = Pagination(request, queryset)
     context = {
         'queryset': queryset,
-        # 'page_string': page_object.html(),
+        'page_string': page_object.html(),
         'serch_data': search_data,
     }
     return render(request, 'admin_list.html', context)
@@ -190,3 +190,7 @@ def admin_delete(request, nid):
 
     models.Admin.objects.filter(id=nid).delete()
     return redirect('/admin/list/')
+
+def login(request):
+
+    return render(request, 'login.html')
