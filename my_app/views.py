@@ -34,9 +34,10 @@ def depart_add(request):
     depart_add page. If the request.method is POST method, save the data collected from user
     to database and redirect user to depart_list page 
     """
+    title_name = 'Create New Department'
     if request.method == 'GET':
         form = DepartmentForm()
-        return render(request, 'depart_add.html', {'form': form})
+        return render(request, 'depart_base.html', {'form': form, 'title_name': title_name})
 
     form = DepartmentForm(data=request.POST)       
     if form.is_valid():
@@ -57,13 +58,17 @@ def depart_edit(request, nid):
     they will be linked to depart_edit page and the title is original name. Then user can 
     change it to a new title.
     """
+    title = 'Update Department Title'
+    row_object = models.Department.objects.filter(id=nid).first()
     if request.method == 'GET':
-        row_object = models.Department.objects.filter(id=nid).first()
-        return render(request, 'depart_edit.html', {'row_object': row_object})
+        form = DepartmentForm(instance = row_object)
+        return render(request, 'depart_base.html', {'form': form, 'title': title})
 
-    title = request.POST.get('title')
-    models.Department.objects.filter(id=nid).update(title=title)
-    return redirect('/depart/list')
+    form = DepartmentForm(data=request.POST, instance=row_object)
+    if form.is_valid():
+        form.save()
+        return redirect('/depart/list')
+    return render(request, 'depart_base.html', {'form': form, 'title': title})
 
 # employee
 
