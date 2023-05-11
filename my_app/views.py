@@ -4,7 +4,7 @@ from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 
 from utils.pagination import Pagination
-from utils.form import DepartmentForm, EmployeeForm, AdminForm
+from utils.form import DepartmentForm, EmployeeForm, AdminForm, LoginForm
 
 
 # department
@@ -192,5 +192,6 @@ def admin_delete(request, nid):
     return redirect('/admin/list/')
 
 def login(request):
-
-    return render(request, 'login.html')
+    
+    form = LoginForm()
+    return render(request, 'login.html', {'form': form})
