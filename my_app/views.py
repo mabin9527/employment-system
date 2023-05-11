@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from my_app import models
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
+
 from utils.pagination import Pagination
 from utils.form import DepartmentForm, EmployeeForm
 
+
+# department
 
 def depart_list(request):
     """
@@ -61,6 +64,8 @@ def depart_edit(request, nid):
     title = request.POST.get('title')
     models.Department.objects.filter(id=nid).update(title=title)
     return redirect('/depart/list')
+
+# employee
 
 def employee_list(request):
     """
@@ -123,5 +128,28 @@ def employee_delete(request, nid):
     """
     models.UserInfo.objects.filter(id=nid).delete()
     return redirect('/employee/list')
+
+# admin
+
+def admin_list(request):
+    """
+    Admin list
+    """
+    data_dict = {}
+    search_data = request.GET.get('search', '')
+    if search_data:
+        data_dict['username__contains'] = search_data
+    
+    queryset = models.Admin.objects.filter(**data_dict)
+
+    page_object = Pagination(request, queryset)
+    context = {
+        'queryset': page_object.page_queryset,
+        'page_string': page_object.html(),
+        'serch_data': search_data,
+    }
+    return render(request, 'admin_list.html', context)
+
+
     
     

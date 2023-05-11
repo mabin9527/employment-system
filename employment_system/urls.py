@@ -27,4 +27,5 @@ urlpatterns = [
     path('employee/add/', views.employee_add),
     path('employee/<int:nid>/edit/', views.employee_edit),
     path('employee/<int:nid>/delete/', views.employee_delete),
+    path('admin/list/', views.admin_list),
 ]
