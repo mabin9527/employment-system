@@ -19,6 +19,7 @@ class Pagination(object):
             page = int(page)
         else:
             page = 1
+
         self.page = page
 
         # Calcualte the first and the last data on current page
@@ -85,11 +86,11 @@ class Pagination(object):
         page_str_list.append(ele)
 
         if self.page < self.total_page_count:
-            prev = f'<li><a href="?page={self.page + 1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
+            next = f'<li><a href="?page={self.page + 1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
         else:
-            prev = f'<li><a href="?page={self.total_page_count}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
+            next = f'<li><a href="?page={self.total_page_count}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
         
-        page_str_list.append(prev)
+        page_str_list.append(next)
 
         search_string = """
             <form class="search-form" method="get">

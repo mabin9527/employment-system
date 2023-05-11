@@ -142,14 +142,15 @@ def admin_list(request):
     
     queryset = models.Admin.objects.filter(**data_dict)
 
-    page_object = Pagination(request, queryset)
+    # page_object = Pagination(request, queryset)
     context = {
-        'queryset': page_object.page_queryset,
-        'page_string': page_object.html(),
+        'queryset': queryset,
+        # 'page_string': page_object.html(),
         'serch_data': search_data,
     }
     return render(request, 'admin_list.html', context)
 
-
+def admin_add(request):
+    
     
     

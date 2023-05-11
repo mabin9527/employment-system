@@ -51,3 +51,11 @@ class EmployeeForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': field.label
                 }
+
+
+class AdminForm(ModelForm):
+    
+    class Meta:
+        model = models.Admin
+        fields = ['username', 'password',]
+        
