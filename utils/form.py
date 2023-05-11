@@ -3,6 +3,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from utils.bootstrap import BootStrapModelForm
+from utils.encrypt import md5
 
 
 class DepartmentForm(BootStrapModelForm):
@@ -66,13 +67,13 @@ class AdminForm(BootStrapModelForm):
     def clean_password(self):
 
         pwd = self.cleaned_data.get('password')
-        return pwd
+        return md5(pwd)
 
     def clean_confirm_password(self):
-
+        
         pwd = self.cleaned_data.get('password')
-        confirm = self.cleaned_data.get('comfirm_password')
+        confirm = md5(self.cleaned_data.get('confirm_password'))
         if confirm != pwd:
             raise ValidationError('Your password does not match !')
-        return comfirm
+        return confirm
 
