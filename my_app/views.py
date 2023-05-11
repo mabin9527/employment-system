@@ -157,5 +157,12 @@ def admin_add(request):
     if request.method == 'GET':
         form = AdminForm()
         return render(request, 'admin_add.html', {'form': form })
+
+    form = AdminForm(data=request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('/admin/list')
+
+    return render(request, 'admin_add.html', {'form': form})
     
     
