@@ -1,7 +1,6 @@
 from my_app import models
 from django import forms
 from django.core.validators import RegexValidator
-from utils.pagination import Pagination
 from utils.bootstrap import BootStrapModelForm
 
 

@@ -151,6 +151,11 @@ def admin_list(request):
     return render(request, 'admin_list.html', context)
 
 def admin_add(request):
-    pass
+    """
+    Add admin
+    """
+    if request.method == 'GET':
+        form = AdminForm()
+        return render(request, 'admin_add.html', {'form': form })
     
     
