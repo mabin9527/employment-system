@@ -158,15 +158,30 @@ def admin_add(request):
     """
     Add admin
     """
+    title = 'New Admin'
     if request.method == 'GET':
         form = AdminForm()
-        return render(request, 'admin_add.html', {'form': form })
+        return render(request, 'admin_base.html', {'form': form, 'title': title })
 
     form = AdminForm(data=request.POST)
     if form.is_valid():
         form.save()
         return redirect('/admin/list')
 
-    return render(request, 'admin_add.html', {'form': form})
+    return render(request, 'admin_base.html', {'form': form, 'title': title})
     
-    
+def admin_edit(request, nid):
+    """
+    Update admin
+    """
+    title = 'Edit Admin'
+    row_object = models.Admin.objects.filter(id=nid).first()
+    if request.method == 'GET':
+        form = AdminForm(instance=row_object)
+        return render(request, 'admin_base.html', {'form': form, 'title': title})
+
+    form = AdminForm(data=request.POST, instance=row_object)
+    if form.is_valid():
+        form.save()
+        return redirect('/admin/list/')
+    return render(request, 'admin_base.html', {'form': form, 'title': title})
