@@ -85,9 +85,6 @@ def employee_list(request):
     }
     return render(request, 'employee_list.html', context)
 
-
-
-
 def employee_add(request):
     """
     Use if statement to check whether request.method is GET. If it is true, user will 
@@ -95,32 +92,34 @@ def employee_add(request):
     firstly. Employee's datail will be saved to database if passing validation and users are
     redirected to employee_list page. Otherwise errors will be raised.
     """
+    title = 'New Employee'
     if request.method == 'GET':
         form = EmployeeForm()
-        return render(request, 'employee_add.html', {'form': form})
+        return render(request, 'employee_base.html', {'form': form, 'title': title})
     
     form = EmployeeForm(data = request.POST)
     if form.is_valid():
         form.save()
         return redirect('/employee/list')
-    return render(request, 'employee_add.html', {'form': form})
+    return render(request, 'employee_base.html', {'form': form, 'title': title})
 
 def employee_edit(request, nid):
     """
     Allow user to update employee's details. Click edit button and user will be redirected 
     to edit page.
     """
+    title = 'Edit Employee'
     row_object = models.UserInfo.objects.filter(id=nid).first()
     if request.method == 'GET':
         form = EmployeeForm(instance = row_object)
-        return render(request, 'employee_edit.html', {'form': form})
+        return render(request, 'employee_base.html', {'form': form, 'title': title})
     
     form = EmployeeForm(data=request.POST, instance=row_object)
     if form.is_valid():
         form.save()
         return redirect('/employee/list/')
     
-    return render(request, 'employee_edit.html', {'form': form})
+    return render(request, 'employee_base.html', {'form': form, 'title': title})
 
 def employee_delete(request, nid):
     """
