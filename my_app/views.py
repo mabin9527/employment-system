@@ -185,3 +185,8 @@ def admin_edit(request, nid):
         form.save()
         return redirect('/admin/list/')
     return render(request, 'admin_base.html', {'form': form, 'title': title})
+
+def admin_delete(request, nid):
+
+    models.Admin.objects.filter(id=nid).delete()
+    return redirect('/admin/list/')
