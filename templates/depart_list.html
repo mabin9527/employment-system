@@ -50,63 +50,62 @@
     </table>
   </div>
 
-      <!-- Modal from Bootstrap-->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="alert alert-danger alert-dismissible fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <h4>Are you sure you want to perform this action?</h4>
-            <p style="text-align: right;">
-              <button type="button" class="btn btn-danger btnConfirmDelete"> Confirm </button>
-              <button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
-            </p>
-          </div>
-        </div>
+  <!-- Modal from Bootstrap-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="alert alert-danger alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4>Are you sure you want to perform this action?</h4>
+        <p style="text-align: right;">
+          <button type="button" class="btn btn-danger btnConfirmDelete"> Confirm </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
+        </p>
       </div>
-    
-        <ul class="pagination">
-          {{ page_string }}
-        </ul>
     </div>
-    {% endblock %}
+  </div>
     
-    {% block js %}
-    <script type="text/javascript">
-      var DELETE_ID
-      $(function() {
-        bindBtnDeleteEvent();
-        bindBtnConfirmDeleteEvent();
-      })
-    
-      function bindBtnDeleteEvent() {
-        $('.btn-delete').click(function() {
-          $('#myModal').modal('show');
-    
-          DELETE_ID = $(this).attr('uid');
-        });
-      }
-    
-      function bindBtnConfirmDeleteEvent() {
-        $('.btnConfirmDelete').click(function() {
-          $.ajax({
-            url: '/admin/' + DELETE_ID + '/delete/',
-            type: 'GET',
-            dataType: 'JSON',
-            success: function (res) {
-              if (res.status) {
-                $('#myModal').modal('hide');
-                $("tr[uid='"+DELETE_ID+"']").remove();
-                DELETE_ID = 0;
-              }else{
-                alert(res.error);
-              }
-            }
-          })
-        });
-      }
-    </script>
-    {% endblock %}
+  <ul class="pagination">
+    {{ page_string }}
+  </ul>
+</div>
+{% endblock %}
 
+{% block js %}
+<script type="text/javascript">
+  var DELETE_ID
+  $(function() {
+    bindBtnDeleteEvent();
+    bindBtnConfirmDeleteEvent();
+  })
+
+  function bindBtnDeleteEvent() {
+    $('.btn-delete').click(function() {
+      $('#myModal').modal('show');
+
+      DELETE_ID = $(this).attr('uid');
+    });
+  }
+
+  function bindBtnConfirmDeleteEvent() {
+    $('.btnConfirmDelete').click(function() {
+      $.ajax({
+        url: '/admin/' + DELETE_ID + '/delete/',
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (res) {
+          if (res.status) {
+            $('#myModal').modal('hide');
+            $("tr[uid='"+DELETE_ID+"']").remove();
+            DELETE_ID = 0;
+          }else{
+            alert(res.error);
+          }
+        }
+      })
+    });
+  }
+</script>
+{% endblock %}
 
 
 

@@ -46,6 +46,18 @@ a {
     margin-left: 5px;
 }
 
+.login {
+    background-image: url(../images/login.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.welcome {
+    text-align: center;
+    padding-top: 80px;
+    margin-top: 0;
+}
 .account {
     width: 400px;
     border: 1px solid #ddd;
