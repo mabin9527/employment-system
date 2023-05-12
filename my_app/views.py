@@ -1,4 +1,6 @@
+import json
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from my_app import models
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
@@ -189,7 +191,7 @@ def admin_edit(request, nid):
 def admin_delete(request, nid):
 
     models.Admin.objects.filter(id=nid).delete()
-    return redirect('/admin/list/')
+    return JsonResponse({'status': True})
 
 def login(request):
     
