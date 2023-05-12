@@ -48,7 +48,7 @@
             <td> ********* </td>
             <td>
               <a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/" target="_blank"">Edit</a>
-              <input class="btn btn-danger btn-xs btn-delete" type="button" value="delete">
+              <input uid="{{ obj.id }}" class="btn btn-danger btn-xs btn-delete" type="button" value="delete">
             </td>
           </tr>
           <tr>
@@ -57,7 +57,7 @@
       </table>
     </div>
 
-  <!-- Modal -->
+  <!-- Modal from Bootstrap-->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="alert alert-danger alert-dismissible fade in" role="alert">
@@ -65,7 +65,7 @@
         <h4>Are you sure you want to perform this action?</h4>
         <p style="text-align: right;">
           <button type="button" class="btn btn-danger"> Confirm </button>
-          <button type="button" class="btn btn-default"> Cancel </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
         </p>
       </div>
     </div>
@@ -79,6 +79,7 @@
 
 {% block js %}
 <script type="text/javascript">
+  var DELETE_ID
   $(function() {
     bindBtnDeleteEvent();
   })
@@ -86,6 +87,8 @@
   function bindBtnDeleteEvent() {
     $('.btn-delete').click(function(){
       $('#myModal').modal('show');
+
+      DELETE_ID = $(this).attr('uid');
     })
   }
 </script>
