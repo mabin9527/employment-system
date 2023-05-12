@@ -47,7 +47,7 @@
             <td> ********* </td>
             <td>
               <a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/" target="_blank"">Edit</a>
-              <a class="btn btn-danger btn-xs" href="/admin/{{ obj.id }}/delete/">Delete</a>
+              <input class="btn btn-danger btn-xs btn-delete" type="button" value="delete">
             </td>
           </tr>
           <tr>
@@ -60,4 +60,18 @@
       {{ page_string }}
     </ul>
 </div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+  $(function() {
+    bindBtnDeleteEvent();
+  })
+
+  function bindBtnDeleteEvent() {
+    $('.btn-delete').click(function(){
+      alert(' Are you sure?');
+    })
+  }
+</script>
 {% endblock %}
