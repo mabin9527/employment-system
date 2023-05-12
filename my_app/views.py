@@ -207,3 +207,11 @@ def login(request):
         request.session['info'] = {'id': admin_object.id, 'name': admin_object.username}
         return redirect('/admin/list')
     return render(request, 'login.html', {'form': form})
+
+
+def logout(request):
+    """
+    Clear the session and users can be only accessed to login page.
+    """
+    request.session.clear()
+    return redirect('/login/')
