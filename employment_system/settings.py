@@ -33,7 +33,7 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ["employment_system.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["employment-system.herokuapp.com", "localhost"]
 
 
 # Application definition
