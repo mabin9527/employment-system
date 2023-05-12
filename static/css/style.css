@@ -46,13 +46,6 @@ a {
     margin-left: 5px;
 }
 
-.login {
-    background-image: url(../images/login.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-
 .welcome {
     text-align: center;
     padding-top: 80px;

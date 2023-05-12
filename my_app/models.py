@@ -36,3 +36,4 @@ class UserInfo(models.Model):
     )
     gender = models.SmallIntegerField(choices=gender_choices)
 
+
