@@ -193,5 +193,14 @@ def admin_delete(request, nid):
 
 def login(request):
     
-    form = LoginForm()
+    if request.method == 'GET':
+        form = LoginForm()
+        return render(request, 'login.html', {'form': form})
+
+    form = LoginForm(data=request.POST)
+    if form.is_valid():
+        admin_object = models.Admin.objects.filter(**form.cleaned_data).first()
+        if not admin_object:
+            form.add_error('password', 'Your username or password is incorrect !')
+            return render(request, 'login.html', {'form': form})
     return render(request, 'login.html', {'form': form})

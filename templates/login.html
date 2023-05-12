@@ -18,21 +18,23 @@
     <!-- Personal CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}"/>
 
-    {% block css %}{% endblock %}
     <title>Login</title>
 
 </head>
 <body>
     <div class="account">
         <h2>Login</h2>
-        <form>
+        <form method="post" novalidate>
+            {% csrf_token %}
             <div class="form-group">
                 <label>Username: </label>
                 {{ form.username }}
+                <span style="color: red;">{{ form.username.errors.0}}</span>
             </div>
             <div class="form-gropu">
                 <label>Password: </label>
                 {{ form.password }}
+                <span style="color: red;">{{ form.password.errors.0}}</span>
             </div>
             <div class="btn">
                 <button class="btn btn-primary">Sign in</button>
