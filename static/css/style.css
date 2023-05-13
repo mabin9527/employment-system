@@ -48,6 +48,8 @@ a {
 
 .login {
     background-image: url(../images/login.jpg);
+    height: 100vh;
+    background-size: cover;
 }
 
 .welcome {
