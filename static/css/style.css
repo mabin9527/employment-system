@@ -46,6 +46,10 @@ a {
     margin-left: 5px;
 }
 
+.login {
+    background-image: url(../images/login.jpg);
+}
+
 .welcome {
     text-align: center;
     padding-top: 80px;
