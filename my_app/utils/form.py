@@ -1,9 +1,10 @@
-from my_app import models
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from utils.bootstrap import BootStrapModelForm
-from utils.encrypt import md5
+
+from my_app import models
+from my_app.utils.bootstrap import BootStrapModelForm
+from my_app.utils.encrypt import md5
 
 
 class DepartmentForm(BootStrapModelForm):

@@ -1,12 +1,12 @@
 import json
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from my_app import models
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
 
-from utils.pagination import Pagination
-from utils.form import DepartmentForm, EmployeeForm, AdminForm, LoginForm
+from my_app import models
+from my_app.utils.pagination import Pagination
+from my_app.utils.form import DepartmentForm, EmployeeForm, AdminForm, LoginForm
 
 
 # department
@@ -23,9 +23,9 @@ def depart_list(request):
     queryset = models.Department.objects.filter(**data_dict)
     page_object = Pagination(request, queryset)
     context = {
+        'search_data': search_data,
         'queryset': page_object.page_queryset,
         'page_string': page_object.html(),
-        'search_data': search_data
     }
     return render(request, 'depart_list.html', context)
 
@@ -85,7 +85,7 @@ def employee_list(request):
     context = {
         'queryset': page_object.page_queryset,
         'page_string': page_object.html(),
-        'search_data': search_data
+        'search_data': search_data,
     }
     return render(request, 'employee_list.html', context)
 
@@ -144,12 +144,12 @@ def admin_list(request):
         data_dict['username__contains'] = search_data
     
     queryset = models.Admin.objects.filter(**data_dict)
-
     page_object = Pagination(request, queryset)
     context = {
-        'queryset': queryset,
-        'page_string': page_object.html(),
         'serch_data': search_data,
+        'queryset': page_object.page_queryset,
+        'page_string': page_object.html(),
+        
     }
     return render(request, 'admin_list.html', context)
 

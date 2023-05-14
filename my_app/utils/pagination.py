@@ -33,6 +33,7 @@ class Pagination(object):
         # data to user. 
 
         self.page_queryset = queryset[self.start:self.end]
+        
         total_count = queryset.count()
         total_page_count, remainder = divmod(total_count, page_size)
         if remainder:
@@ -84,21 +85,22 @@ class Pagination(object):
             else:
 
                 ele = f'<li><a href="?page={i}"> {i} </a></li>'
-        
-        page_str_list.append(ele)
+            page_str_list.append(ele)
 
         if self.page < self.total_page_count:
-            next = f'<li><a href="?page={self.page + 1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
+            prev = f'<li><a href="?page={self.page + 1}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
         else:
-            next = f'<li><a href="?page={self.total_page_count}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
+            prev = f'<li><a href="?page={self.total_page_count}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>'
         
-        page_str_list.append(next)
+        page_str_list.append(prev)
 
-        search_string = """
+        search_string =  """
+        <li>
             <form class="search-form" method="get">
                 <input type="text" name="page" class="form-control search-input" placeholder="Page" >
                 <button class="btn btn-default search-btn" type="submit">Go!</button>
             </form>
+        <li>
         """
 
         page_str_list.append(search_string)
