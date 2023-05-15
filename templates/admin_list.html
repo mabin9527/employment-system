@@ -5,16 +5,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid">
+  <div class="row">
     <div style="margin-bottom: 10px;" class="clearfix">
-      <a class="btn btn-success" href="/admin/add/">
-        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-        Add New Admin
-      </a>
-      <div style="float: right; width: 200px">
+      <div class="col-xs-7">
+        <a class="btn btn-success" href="/admin/add/">
+          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+          Add New Admin
+        </a>
+      </div>
+      <div class="col-xs-5">
         <form method="get">
           <div class="input-group">
-            <input type="text" name="search" class="form-control" placeholder="keywords" value="{{ search_data }}">
+            <input type="text" name="search" class="form-control" placeholder="Search" value="{{ search_data }}">
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -24,41 +27,43 @@
         </form>
       </div>
     </div>
-  
+  </div>
     <div class="panel panel-default">
       <div class="panel-heading">
         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
         Admin List
       </div>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Operation</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for obj in queryset %}
-          <tr uid="{{ obj.id }}">
-            <th>{{ obj.id }}</th>
-            <td>{{ obj.username }}</td>
-            <td> ********* </td>
-            <td>
-              <a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/" target="_blank"">Edit</a>
-              <input uid="{{ obj.id }}" class="btn btn-danger btn-xs btn-delete" type="button" value="Delete">
-            </td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for obj in queryset %}
+            <tr uid="{{ obj.id }}">
+              <th>{{ obj.id }}</th>
+              <td>{{ obj.username }}</td>
+              <td> ********* </td>
+              <td>
+                <a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/" target="_blank"">Edit</a>
+                <input uid="{{ obj.id }}" class="btn btn-danger btn-xs btn-delete" type="button" value="Delete">
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
 
   <!-- Modal from Bootstrap-->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="alert alert-danger alert-dismissible fade in" role="alert">
+    <div class="modal-dialog row" role="document">
+      <div class="alert alert-danger alert-dismissible fade in col-xs-12" role="alert">
         <h4>Are you sure you want to perform this action?</h4>
         <p style="text-align: right;">
           <button type="button" class="btn btn-danger btnConfirmDelete"> Confirm </button>
@@ -67,13 +72,14 @@
       </div>
     </div>
   </div>
-
-  <ul class="pagination">
-    {{ page_string }}
-  </ul>
-
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="pagination">
+        {{ page_string }}
+      </ul>
+    </div>
+  </div>
 </div>
-
 {% endblock %}
 
 

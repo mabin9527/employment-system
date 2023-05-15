@@ -25,51 +25,55 @@
     </div>
   </div>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-          Department List
-        </div>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Operation</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for obj in queryset %}
-            <tr uid="{{ obj.id }}">
-              <th>{{ obj.id}}</th>
-              <td>{{ obj.title}}</td>
-              <td>
-                <a class="btn btn-primary btn-xs" href="/depart/{{ obj.id }}/edit/" target="_blank">Edit</a>
-                <input uid="{{ obj.id }}" class="btn btn-danger btn-xs btn-delete" type="button" value="Delete">
-              </td>
-            </tr>
-            <tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+      Department List
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for obj in queryset %}
+          <tr uid="{{ obj.id }}">
+            <th>{{ obj.id}}</th>
+            <td>{{ obj.title}}</td>
+            <td>
+              <a class="btn btn-primary btn-xs" href="/depart/{{ obj.id }}/edit/" target="_blank">Edit</a>
+              <input uid="{{ obj.id }}" class="btn btn-danger btn-xs btn-delete" type="button" value="Delete">
+            </td>
+          </tr>
+          <tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-      <!-- Modal from Bootstrap-->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="alert alert-danger alert-dismissible fade in" role="alert">
-            <h4>Are you sure you want to perform this action?</h4>
-            <p style="text-align: right;">
-              <button type="button" class="btn btn-danger btnConfirmDelete"> Confirm </button>
-              <button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
-            </p>
-          </div>
-        </div>
+  <!-- Modal from Bootstrap-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog row" role="document">
+      <div class="alert alert-danger alert-dismissible fade in col-xs-12" role="alert">
+        <h4>Are you sure you want to perform this action?</h4>
+        <p style="text-align: right;">
+          <button type="button" class="btn btn-danger btnConfirmDelete"> Confirm </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"> Cancel </button>
+        </p>
       </div>
-        
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
       <ul class="pagination">
         {{ page_string }}
       </ul>
+    </div>
   </div>
 </div>
 {% endblock %}
