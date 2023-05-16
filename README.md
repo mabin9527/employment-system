@@ -70,3 +70,42 @@ The Employment System is an online platform where users can manage employees.
 ##### Back to [top](#table-of-contents)<hr>
 
 
+## User Experience
+
+### Target Audience
+- Users that wish to book a table for a meal or a party with family and friends
+- Past and new customers for the business
+- Tourists visiting the area that are looking for a meal or a drink or both
+- Fans visiting the area for a sports event or a music concert
+- People employed in the area to eat and drink after work
+
+### User Requirements and Expectations
+
+- Fully responsive
+- Accessible
+- A welcoming design
+- Social media
+- Contact information
+- Accessibility
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## User Stories
+
+### Users
+
+1.	As a User I can navigate across the site so that I can move to each feature of the site easily
+2.	As a User I can log in and logout the website 
+3.	As a User I can edit and delete employees' information
+4.	As a User I can view all employee detail in one certain department
+5.	As a User I can set up an account for new employee
+
+### Site Owner  
+6. As a Site Owner, I can provide a fully responsive site for my customers so that they have a good user experience
+7. As a Site Owner, I can validate data entered into my site so that all submitted data is correct to avoid errors
+8. As a Site Owner, I can provide a site where users can manage easily
+
+##### Back to [top](#table-of-contents)<hr>
+
+
