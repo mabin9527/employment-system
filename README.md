@@ -1,6 +1,6 @@
 # Employment System
 
-![Am I Responsive](docs/am-i-responsive.PNG)
+![Am I Responsive](static/images/am-i-responsive.png)
 
 **Developer: Bin Ma**
 
