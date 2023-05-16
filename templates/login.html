@@ -24,24 +24,32 @@
 <body>
     <div class="login">
         <h2 class="welcome">Welcome to Employment System</h2>
-        <div class="account">
-            <h2>Login</h2>
-            <form method="post" novalidate>
-                {% csrf_token %}
-                <div class="form-group">
-                    <label>Username: </label>
-                    {{ form.username }}
-                    <span style="color: red;">{{ form.username.errors.0}}</span>
+        <div class="account container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2>Login</h2>
                 </div>
-                <div class="form-gropu">
-                    <label>Password: </label>
-                    {{ form.password }}
-                    <span style="color: red;">{{ form.password.errors.0}}</span>
-                </div>
-                <div class="btn">
-                    <button class="btn btn-primary">Sign in</button>
-                </div>
-            </form>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label>Username: </label>
+                            {{ form.username }}
+                        </div>
+                        <span style="color: red;">{{ form.username.errors.0}}</span>
+                    </div>
+                    <div class="form-gropu">
+                        <div class="col-xs-12">
+                            <label>Password: </label>
+                            {{ form.password }}
+                        </div>
+                        <span style="color: red;">{{ form.password.errors.0}}</span>
+                    </div>
+                    <div class="btn col-xs-12">
+                        <button class="btn btn-primary">Sign in</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

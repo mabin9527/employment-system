@@ -59,7 +59,7 @@ a {
 }
 
 .account {
-    width: 400px;
+    width: 350px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 5px 5px 20px #aaa;
@@ -80,6 +80,14 @@ a {
     margin-top: 5px;
 }
 
+@media screen and (max-width: 768px) {
+    .login {
+        background: none;
+    }
+    .account {
+        width: 80%;
+    }
+}
 
 
 
