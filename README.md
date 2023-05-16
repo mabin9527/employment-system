@@ -49,6 +49,24 @@ The Employment System is an online platform where users can manage employees.
 
 - To provide a solution to allow users to create admin account to manage employee
 - To provide a well-structured online platform with a simple operation interface
-- Provide a modern application with search function
+- Provide a modern application with a search function
 - Fully responsive and accessible
 <hr>
+
+
+## User Experience
+
+### Target Audience
+- The HR wants to manage the company's employees easily
+- The owner of the company would like to acquire updated information about employees
+- The department manager wishes to know the employee list in their department
+
+### User Requirements and Expectations
+
+- Fully responsive
+- Accessible
+- Simple operation interface
+
+##### Back to [top](#table-of-contents)<hr>
+
+
