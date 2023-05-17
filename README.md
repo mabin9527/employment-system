@@ -33,7 +33,7 @@
 
 ### About
 
-The Employment System is an online platform where users can manage employees.
+The Employment System is an online platform where users can manage employees. In case the viewer needs permission to get access to the other pages, the username and password for the login are Andy 1234. The viewer can then edit or delete it.
 <hr>
 
 ### User Goals
