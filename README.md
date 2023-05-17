@@ -26,8 +26,6 @@
   - [Testing](#testing)
     - [Manual testing](#manual-testing)
     - [Automated testing](#automated-testing)
-    - [Tests on various devices](#tests-on-various-devices)
-    - [Browser compatibility](#browser-compatibility)
   - [Bugs](#bugs)
   - [Heroku Deployment](#heroku-deployment)
   - [Credits](#credits)
@@ -405,3 +403,59 @@ Performance, best practices and SEO was tested using Lighthouse.
 </details>
 
 ##### Back to [top](#table-of-contents)<hr>
+
+
+### Automated testing
+
+- Testing was done using the built-in Django module, unittest.
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Bugs
+
+### Fixed Bugs
+
+- Run the python3 manage.py migrate command not working as excepted. When I create Django project, I forgot the . at the end of the project name. Then I recreate the project.
+- Run the python3 manage.py collectstatic command not working. Delete the static folder in Cloudinary and recreate one.
+- Deploy to Heroku failed. Delate the add-on.
+
+### Unfixed Bugs
+
+- No bugs remaining
+
+### Heroku Deployment
+
+
+The website was deployed by following the steps below: 
+
+1. Log in [Heroku](https://id.heroku.com/login). 
+
+2. Click 'New' and select 'Create new app'
+
+3. Choose a name for the app, region and click on 'Create app'
+
+4. Only 'Deploy' and 'Settings' are relevant from the menu section. Starting with the 'Settings' first.
+
+5. Now Buildpacks need to be added. They install future dependencies that are needed outside of the requirements file. The first is Python and the second is node.js. Python needs to be selected first and then node.js. Save this selection.
+
+6. Now the 'Deploy' section needs to be selected from the menu and connect to Git Hub.
+
+7. Enter the name of the repository we want to connect it with and click 'Connect'
+
+8. The choice appears now to either deploy using automatic deploys or manual deployment, which deploys the current state of the branch.
+
+9. Click deploy branch. 
+
+
+## Credits
+
+- Two walkthrough projects Hello Django and I Think Therefore I Blog. Learned how set up the environment of the project.
+- Bootstrap layout
+
+## Acknowledgments
+
+
+Many thanks to the student care from the Code Institute for assisting me to solve the bugs and give me suggestions to optimize my code. At the same, I want to thanks my family to support me in using my spare time to learn to code.
+
+
