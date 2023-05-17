@@ -424,6 +424,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 - No bugs remaining
 
+##### Back to [top](#table-of-contents)<hr>
+
 ### Heroku Deployment
 
 
@@ -447,15 +449,22 @@ The website was deployed by following the steps below:
 
 9. Click deploy branch. 
 
+##### Back to [top](#table-of-contents)<hr>
+
 
 ## Credits
 
 - Two walkthrough projects Hello Django and I Think Therefore I Blog. Learned how set up the environment of the project.
 - Bootstrap layout
 
+##### Back to [top](#table-of-contents)<hr>
+
+
 ## Acknowledgments
 
 
 Many thanks to the student care from the Code Institute for assisting me to solve the bugs and give me suggestions to optimize my code. At the same, I want to thanks my family to support me in using my spare time to learn to code.
+
+##### Back to [top](#table-of-contents)<hr>
 
 
