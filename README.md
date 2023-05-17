@@ -372,3 +372,36 @@ PEP8 Validation Service was used to check the code for PEP8 requirements via Pyc
 <details><summary>pagination.py</summary>
 <img src="static/images/pep8-validation/pagination.png">
 </details>
+
+
+### Lighthouse
+
+Performance, best practices and SEO was tested using Lighthouse.
+
+#### Desktop
+<details><summary>Admin</summary>
+<img src="static/images/lighthouse/admin.png">
+</details>
+
+<details><summary>Department</summary>
+<img src="static/images/lighthouse/depart.png">
+</details>
+
+<details><summary>Employee</summary>
+<img src="static/images/lighthouse/employee.png">
+</details>
+
+#### Mobile
+<details><summary>Admin</summary>
+<img src="static/images/lighthouse/admin-mobile.png">
+</details>
+
+<details><summary>Department</summary>
+<img src="static/images/lighthouse/depart-mobile.png">
+</details>
+
+<details><summary>Employee</summary>
+<img src="static/images/lighthouse/employee-mobile.png">
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
