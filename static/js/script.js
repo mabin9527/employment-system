@@ -1,15 +1,14 @@
 
-var DELETE_ID
+var DELETE_ID;
 $(function() {
   bindBtnDeleteEvent();
   bindBtnConfirmDeleteEvent();
   bindMouseClickEvent();
-})
+});
 
 function bindBtnDeleteEvent() {
   $('.btn-delete').click(function() {
     $('#myModal').modal('show');
-
     DELETE_ID = $(this).attr('uid');
   });
 }
@@ -29,7 +28,7 @@ function bindBtnConfirmDeleteEvent() {
           alert(res.error);
         }
       }
-    })
+    });
   });
 }
 

@@ -108,4 +108,233 @@ The Employment System is an online platform where users can manage employees.
 
 ##### Back to [top](#table-of-contents)<hr>
 
+## Design
+
+### Colors
+
+I chose a light grey as the nav-bar background color and an extremely clean white color as the background color. The text color would be normal black. Because as an online working platform, the HR or employees' attention should not be abstracted by the colorful design. 
+
+The colors I wanted to stay close to  [Coolors.co](https://coolors.co/)
+<details><summary>See colour pallet</summary>
+<img src="static/images/colors.png">
+</details>
+
+### Fonts
+
+ The fonts selected were from Google Fonts, Montserrat wits sans-serif as a backup font.
+
+
+#### Website pages
+
+The site was designed for the user to be familiar with the classic office applications such as a navigation bar along the top of the pages and a hamburger menu button for smaller screens. Besides, the operation interface is easy to learn which will save plenty of time and costs for the owner. Because it is not necessary to train new employees on how to use this platform.
+
+- The site consists of the following pages:
+  - The login page allows the user to get access to the platform
+  - The admin page shows the admin's username 
+  - The admin edit page allows the user to update the admin's username and password saved from the database
+  - The department page displays the current consist of departments in the company
+  - The employee page can be used to add, edit and delete employee detail
+
+ #### Database
+
+- Built with Python and the Django framework with a database of a Postgres for the deployed Heroku version(production)
+- The database ER diagram and table show all the fields stored in the database
+
+<details><summary>Show diagram</summary>
+<img src="static/images/ER-diagram.png">
+</details>
+<details><summary>Show table</summary>
+<img src="static/images/table.png">
+</details>
+
+
+### Wireframes
+The wireframes were created using Balsamiq
+<details><summary>Wireframes</summary>
+<img src="static/images/wireframes/login.png">
+<img src="static/images/wireframes/admin.png">
+<img src="static/images/wireframes/depart.png">
+<img src="static/images/wireframes/employee.png">
+</details>
+
+
+## Technologies Used
+
+### Languages & Frameworks
+
+- HTML
+- CSS
+- Javascript
+- Python
+- Django
+
+##### Back to [top](#table-of-contents)
+
+
+## Features
+
+### Login page
+- The login page includes an input form that allows the user to type in username and password to get access to the main page. The submit button sends the form data to the backend. 
+
+<details><summary>See feature images</summary>
+
+![Login page](static/images/features/login.png)
+</details>
+
+### Navigation
+- Fully Responsive
+- On small screens switches to the hamburger menu
+- Show the current user's name
+- Logout the site
+- Displayed on all pages
+
+<details><summary>See feature images</summary>
+
+![Navigation](static/images/features/nav-bar.png)
+![Logout](static/images/features/logout.png)
+</details>
+
+### Footer
+- Contains copyright
+- Displayed across all pages
+
+<details><summary>See feature images</summary>
+
+![Footer](static/images/features/footer.png)
+</details>
+
+### Admin
+- Displayed all admin's username
+- Allow users to add new admin, edit and delete exist admin
+- Allow users to search for relevant information
+
+<details><summary>See feature images</summary>
+
+![Admin](static/images/features/admin.png)
+</details>
+
+### Add New Admin
+- Allow users to add new admin
+
+<details><summary>See feature images</summary>
+
+![Admin](static/images/features/admin-add.png)
+</details>
+
+### Edit Admin
+- Show the existing information of the admin
+- Allow users to update existing information of the admin
+
+<details><summary>See feature images</summary>
+
+![Admin](static/images/features/admin-edit.png)
+</details>
+
+### Delete Admin
+- Allow user to delete the selected admin from database
+- The warning box reminds the user of the importance of data
+
+<details><summary>See feature images</summary>
+
+![Admin](static/images/features/warning-box.png)
+</details>
+
+### Department
+- Displayed all current company departments
+- Allow users to add new departments, edit and delete existing department
+- Search functions
+
+<details><summary>See feature images</summary>
+
+![Department](static/images/features/depart.png)
+</details>
+
+### Add New Department Title
+- Allow users to add new department title
+
+<details><summary>See feature images</summary>
+
+![Department](static/images/features/depart-add.png)
+</details>
+
+### Employee
+- Displayed all current company employees
+- Allow users to add new employees, edit and delete existing employees
+- Search functions
+
+<details><summary>See feature images</summary>
+
+![Employee](static/images/features/employee.png)
+</details>
+
+### Add New Employees
+- Allow users to add new employees
+
+<details><summary>See feature images</summary>
+
+![Employee](static/images/features/employee-add.png)
+</details>
+
+### Pagination
+- Add self-defined pagination class
+- Pagination is used on the admin, department and employee pages
+- Ensures the page is kept tidy as 10 items are displayed per page
+- Indicate current page
+- Add skip-page box to allow user skip to some certain page
+  
+<details><summary>See feature images</summary>
+
+![Pagination](static/images/features/pagination.png)
+</details>
+
+##### Back to [top](#table-of-contents)<hr>
+
+
+## Validation
+
+The W3C Markup Validation Service
+<details><summary>Login</summary>
+<img src="static/images/validation/login.png">
+</details>
+
+<details><summary>Admin</summary>
+<img src="static/images/validation/admin.png">
+</details>
+
+<details><summary>Add New Admin</summary>
+<img src="static/images/validation/admin-add.png">
+</details>
+
+<details><summary>Department</summary>
+<img src="static/images/validation/depart.png">
+</details>
+
+<details><summary>Create Department Title</summary>
+<img src="static/images/validation/depart-add.png">
+</details>
+
+<details><summary>Employee</summary>
+<img src="static/images/validation/employee.png">
+</details>
+
+<details><summary>Add New Employee</summary>
+<img src="static/images/validation/employee-add.png">
+</details>
+
+
+### CSS Validation
+The W3C Jigsaw CSS Validation Service
+
+<details><summary>Style.css</summary>
+<img src="static/images/validation/css.png">
+</details><hr>
+
+
+### JavaScript Validation
+JSHint JS Validation Service
+
+<details><summary>Script.js</summary>
+<img src="static/images/validation/js.png">
+</details><hr>
+
 
