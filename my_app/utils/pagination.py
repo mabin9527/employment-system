@@ -29,11 +29,10 @@ class Pagination(object):
         self.end = page * page_size
 
         # Obtain the total page by using total number of data divided by the amount of data
-        # displayed per page.  If there is a remainder, then total page +1 for showing all 
+        # displayed per page. If there is a remainder, then total page +1 for showing all 
         # data to user. 
 
         self.page_queryset = queryset[self.start:self.end]
-        
         total_count = queryset.count()
         total_page_count, remainder = divmod(total_count, page_size)
         if remainder:
@@ -94,7 +93,7 @@ class Pagination(object):
         
         page_str_list.append(prev)
 
-        search_string =  """
+        search_string = """
         <li>
             <form class="search-form" method="get">
                 <input type="text" name="page" class="form-control search-input" placeholder="Page" >

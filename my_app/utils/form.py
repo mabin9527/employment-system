@@ -20,7 +20,7 @@ class EmployeeForm(BootStrapModelForm):
 
     name = forms.CharField(
         label='Name',
-        validators=[RegexValidator(r'^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$', 
+        validators=[RegexValidator(r'^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$',
         'Please type correct name')]
     )
     password = forms.CharField(
@@ -42,7 +42,6 @@ class EmployeeForm(BootStrapModelForm):
         fields = [
             'name', 'password', 'age', 'account', 'create_time', 'gender', 'depart',
             ]
-
 
 
 class AdminForm(BootStrapModelForm):
@@ -71,7 +70,6 @@ class AdminForm(BootStrapModelForm):
         return md5(pwd)
 
     def clean_confirm_password(self):
-        
         pwd = self.cleaned_data.get('password')
         confirm = md5(self.cleaned_data.get('confirm_password'))
         if confirm != pwd:
@@ -96,4 +94,3 @@ class LoginForm(forms.Form):
     def clean_password(self):
         pwd = self.cleaned_data.get('password')
         return md5(pwd)
-

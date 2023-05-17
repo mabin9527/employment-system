@@ -338,3 +338,37 @@ JSHint JS Validation Service
 </details><hr>
 
 
+### PEP8 Validation
+PEP8 Validation Service was used to check the code for PEP8 requirements via Pycodestyle as PEP8online was no longer available
+
+<details><summary>Tool used: Pycodestyle</summary>
+<img src="static/images/pep8-validation/pycodestyle-install.png">
+</details>
+
+<details><summary>models.py</summary>
+<img src="static/images/pep8-validation/models.png">
+</details>
+
+<details><summary>views.py</summary>
+<img src="static/images/pep8-validation/views.png">
+</details>
+
+<details><summary>urls.py</summary>
+<img src="static/images/pep8-validation/urls.png">
+</details>
+
+<details><summary>bootstrap.py</summary>
+<img src="static/images/pep8-validation/bootstrap.png">
+</details>
+
+<details><summary>encrypt.py</summary>
+<img src="static/images/pep8-validation/encrypt.png">
+</details>
+
+<details><summary>form.py</summary>
+<img src="static/images/pep8-validation/form.png">
+</details>
+
+<details><summary>pagination.py</summary>
+<img src="static/images/pep8-validation/pagination.png">
+</details>

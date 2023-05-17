@@ -25,8 +25,10 @@ class UserInfo(models.Model):
     """
     name = models.CharField(max_length=16)
     password = models.CharField(max_length=64)
-    age = models.IntegerField(verbose_name = 'age')
-    account = models.DecimalField(verbose_name='balance', max_digits=10, decimal_places=2, default=0)
+    age = models.IntegerField(verbose_name='age')
+    account = models.DecimalField(
+        verbose_name='balance', max_digits=10, decimal_places=2, default=0
+        )
     create_time = models.DateField(verbose_name='Hire Date')
     depart = models.ForeignKey(Department, on_delete=models.CASCADE)
 
@@ -35,5 +37,3 @@ class UserInfo(models.Model):
         (2, 'Female'),
     )
     gender = models.SmallIntegerField(choices=gender_choices)
-
-

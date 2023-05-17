@@ -11,6 +11,7 @@ from my_app.utils.form import DepartmentForm, EmployeeForm, AdminForm, LoginForm
 
 # department
 
+
 def depart_list(request):
     """
     Department list
@@ -32,24 +33,30 @@ def depart_list(request):
 
 def depart_add(request):
     """
-    First to check if the request.method is GET method. If it is true, then link the user to 
-    depart_add page. If the request.method is POST method, save the data collected from user
-    to database and redirect user to depart_list page 
+    First to check if the request.method is GET method. If it is true,
+    then link the user to depart_add page. If the request.method is POST 
+    method, save the data collected from user to database and redirect user 
+    to depart_list page
     """
     title_name = 'Create New Department'
     if request.method == 'GET':
         form = DepartmentForm()
-        return render(request, 'depart_base.html', {'form': form, 'title_name': title_name})
+        return render(
+            request, 'depart_base.html', 
+            {'form': form, 'title_name': title_name}
+            )
 
     form = DepartmentForm(data=request.POST)       
-    if form.is_valid():
+    if form.is_valid(): 
         form.save()
     return redirect('/depart/list/')
+
 
 def depart_delete(request, nid):
 
     models.Department.objects.filter(id=nid).delete()
     return JsonResponse({'status': True})
+
 
 def depart_edit(request, nid):
     """
@@ -57,10 +64,10 @@ def depart_edit(request, nid):
     they will be linked to depart_edit page and the title is original name. Then user can 
     change it to a new title.
     """
-    title_name = 'Update Department Title'
-    row_object = models.Department.objects.filter(id=nid).first()
-    if request.method == 'GET':
-        form = DepartmentForm(instance = row_object)
+    title_name='Update Department Title' 
+    row_object=models.Department.objects.filter(id=nid).first()
+    if request.method=='GET':
+        form = DepartmentForm(instance=row_object)
         return render(request, 'depart_base.html', {'form': form, 'title_name': title_name})
 
     form = DepartmentForm(data=request.POST, instance=row_object)
@@ -70,6 +77,7 @@ def depart_edit(request, nid):
     return render(request, 'depart_base.html', {'form': form, 'title': title})
 
 # employee
+
 
 def employee_list(request):
     """
@@ -89,16 +97,17 @@ def employee_list(request):
     }
     return render(request, 'employee_list.html', context)
 
+
 def employee_add(request):
     """
-    Use if statement to check whether request.method is GET. If it is true, user will 
-    jump to employee_add page. As user submit their data to database, it will be validated
-    firstly. Employee's datail will be saved to database if passing validation and users are
-    redirected to employee_list page. Otherwise errors will be raised.
+    Use if statement to check whether request.method is GET. If it is true, user will
+    jump to employee_add page. As user submit their data to database, it will be
+    validated firstly. Employee's datail will be saved to database if passing validation
+    and users are redirected to employee_list page. Otherwise errors will be raised.
     """
     title = 'New Employee'
     if request.method == 'GET':
-        form = EmployeeForm()
+        form=EmployeeForm()
         return render(request, 'employee_base.html', {'form': form, 'title': title})
     
     form = EmployeeForm(data = request.POST)
@@ -107,10 +116,11 @@ def employee_add(request):
         return redirect('/employee/list')
     return render(request, 'employee_base.html', {'form': form, 'title': title})
 
+
 def employee_edit(request, nid):
     """
-    Allow user to update employee's details. Click edit button and user will be redirected 
-    to edit page.
+    Allow user to update employee's details. Click edit button and user will 
+    be redirected to edit page.
     """
     title = 'Edit Employee'
     row_object = models.UserInfo.objects.filter(id=nid).first()
@@ -125,6 +135,7 @@ def employee_edit(request, nid):
     
     return render(request, 'employee_base.html', {'form': form, 'title': title})
 
+
 def employee_delete(request, nid):
     """
     Delete the employee's information
@@ -133,6 +144,7 @@ def employee_delete(request, nid):
     return JsonResponse({'status': True})
 
 # admin
+
 
 def admin_list(request):
     """
@@ -153,6 +165,7 @@ def admin_list(request):
     }
     return render(request, 'admin_list.html', context)
 
+
 def admin_add(request):
     """
     Add admin
@@ -160,7 +173,7 @@ def admin_add(request):
     title = 'New Admin'
     if request.method == 'GET':
         form = AdminForm()
-        return render(request, 'admin_base.html', {'form': form, 'title': title })
+        return render(request, 'admin_base.html', {'form': form, 'title': title})
 
     form = AdminForm(data=request.POST)
     if form.is_valid():
@@ -169,6 +182,7 @@ def admin_add(request):
 
     return render(request, 'admin_base.html', {'form': form, 'title': title})
     
+
 def admin_edit(request, nid):
     """
     Update admin
@@ -185,10 +199,12 @@ def admin_edit(request, nid):
         return redirect('/admin/list/')
     return render(request, 'admin_base.html', {'form': form, 'title': title})
 
+
 def admin_delete(request, nid):
 
     models.Admin.objects.filter(id=nid).delete()
     return JsonResponse({'status': True})
+
 
 def login(request):
     
@@ -207,10 +223,10 @@ def login(request):
         return redirect('/admin/list')
     return render(request, 'login.html', {'form': form})
 
+
 def logout(request):
     """
     Clear the session and users can be only accessed to login page.
     """
     request.session.clear()
     return redirect('/login/')
-
