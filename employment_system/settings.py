@@ -37,11 +37,6 @@ ALLOWED_HOSTS = [
     "employment-system.herokuapp.com", "localhost"
     ]
 
-ALLOWED_HOSTS = [
-    '8000-mabin9527-employmentsys-svhm3tp0toz.ws-eu103.gitpod.io'
-]
-
-
 # Application definition
 
 INSTALLED_APPS = [
