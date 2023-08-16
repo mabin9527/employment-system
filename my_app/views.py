@@ -229,4 +229,4 @@ def logout(request):
     Clear the session and users can be only accessed to login page.
     """
     request.session.clear()
-    return redirect('/login/')
+    return redirect('login')
